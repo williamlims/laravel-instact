@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
+<body class="bg-light">
     @yield('content')
 
     <script src="{{ asset('plugins/sweetalert/sweetalert2.all.min.js') }}"></script>
@@ -47,6 +47,16 @@
                 title: '{{ session('error') }}'
             })
         </script>
+    @endif
+    @if ($errors->any())
+        @foreach($errors->all() as $error)
+            <script>
+                Toast.fire({
+                    icon: 'error',
+                    title: '{{ $error }}'
+                })
+            </script>
+        @endforeach
     @endif
 
     @stack('scripts')

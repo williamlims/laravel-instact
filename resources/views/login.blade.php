@@ -7,7 +7,9 @@
         <form class="mw-100" action="{{ route('signin') }}" method="post" style="width: 400px;">
             @csrf
 
-            <h1 class="mb-5 text-secondary text-center">Login</h1>
+            <div class="text-center mb-5">
+                <img src="{{ asset('images/logo.png') }}" width="150">
+            </div>
 
             <div class="mb-3">
                 <input class="form-control" type="email" name="email" placeholder="E-mail" required>
